@@ -13,9 +13,11 @@
       <tr>
         <td><%= event.name%></td>
         <td><%= event.location%></td>
-        <td><%= number_to_currency(event.price)%></td>
-        <td><%= event.description%></td>
-        <td><%= event.starts_at%></td>
+        <td>
+          <%= price(event)%>
+          </td>
+        <td><%= truncate(event.description, length: 35, separator: ' ')%></td>
+        <td><%= day_and_time(event)%></td>
       </tr>
 
       <% end %>
