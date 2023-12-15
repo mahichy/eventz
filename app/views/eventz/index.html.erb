@@ -4,6 +4,8 @@
       <th>name</th>
       <th>location</th>
       <th>price</th>
+      <th>Description</th>
+      <th>Starts at</th>
     </tr>
   </thead>
   <tbody>
@@ -11,8 +13,9 @@
       <tr>
         <td><%= event.name%></td>
         <td><%= event.location%></td>
-        <td><%= event.price%></td>
-
+        <td><%= number_to_currency(event.price)%></td>
+        <td><%= event.description%></td>
+        <td><%= event.starts_at%></td>
       </tr>
 
       <% end %>
@@ -23,9 +26,3 @@
 
 
 
-
-<ul>
-  <% @events.each do |event|%>
-    <li><%= event.name%></li>
-  <% end %>
-</ul>
