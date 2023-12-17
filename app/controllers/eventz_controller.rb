@@ -5,4 +5,8 @@ class EventzController < ApplicationController
     # @events = ['BugSmash', 'Hackathon', 'Kata Camp', 'Additional']
     @events = Event.all
   end
+
+  def show
+    @event = Event.find(params[:id])
+  end
 end
