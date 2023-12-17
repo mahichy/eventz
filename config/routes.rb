@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'eventz' => 'eventz#index'
-  get 'eventz/:id' => 'eventz#show'
+  root 'events#index'
+  get 'events' => 'events#index'
+  get 'events/:id' => 'events#show', as: 'event'
 end

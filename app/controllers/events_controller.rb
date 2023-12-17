@@ -1,4 +1,4 @@
-class EventzController < ApplicationController
+class EventsController < ApplicationController
 
   def index
     # @age = rand(100)
