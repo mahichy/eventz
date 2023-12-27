@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
   root 'events#index'
 
   # get 'events' => 'events#index'
@@ -12,4 +11,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :registrations
   end
+
+  resources :users
+    get "signup" => "users#new"
 end
