@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
 
+  before_action :require_signin, except: [:index, :show]
+  before_action :require_admin, except: [:index, :show]
+
+
+
   def index
     # @age = rand(100)
     # @events = ['BugSmash', 'Hackathon', 'Kata Camp', 'Additional']
