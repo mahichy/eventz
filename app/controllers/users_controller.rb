@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :require_signin, except: [:new, :create]
 
- 
+  before_action :require_current_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -29,11 +29,9 @@ class UsersController < ApplicationController
 
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: "Account Successfully Updated!"
     else
@@ -42,7 +40,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     session[:user_id] = nil
       redirect_to events_url, status: :see_other,
@@ -51,6 +48,11 @@ class UsersController < ApplicationController
 
 
   private
+
+  def require_current_user
+    @user = User.find(params[:id])
+      redirect_to events_url unless current_user?(@user)
+  end
 
   def user_params
     params.require(:user).
