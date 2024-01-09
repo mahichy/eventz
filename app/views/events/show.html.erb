@@ -37,7 +37,14 @@
           </li>
         <% end %>
       </ul>
-
+    <% end %>
+    <% if @categories.present?%>
+      <h4>Category</h4>
+      <ul>
+        <% @categories.each do |c|%>
+        <li><%= c.name%></li>
+        <% end %>
+      </ul>
     <% end %>
   </aside>
   
