@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_09_083948) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_10_093739) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_09_083948) do
     t.text "description"
     t.string "image_file_name", default: "placeholder.png"
     t.integer "capacity", default: 1
+    t.string "slug"
   end
 
   create_table "likes", force: :cascade do |t|
