@@ -6,10 +6,19 @@ class EventsController < ApplicationController
 
 
   def index
+    case params[:filter]
+      when "past"
+        @events = Event.past
+        when "free"
+          @events = Event.free
+        when "recent"
+          @events = Event.recent
     # @age = rand(100)
     # @events = ['BugSmash', 'Hackathon', 'Kata Camp', 'Additional']
     # @events = Event.all
-    @events = Event.upcoming
+      else
+        @events = Event.upcoming
+      end
   end
 
   def show

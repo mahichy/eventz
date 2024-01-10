@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :categories
   root 'events#index'
 
+  get "events/filter/:filter" => "events#index", as: :filtered_events
+
   # get 'events' => 'events#index'
   # get 'events/new' => 'events#new'
   # get 'events/:id' => 'events#show', as: 'event'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
     resources :registrations
     resources :likes
   end
+
 
   resource :session, only: [:new, :create, :destroy]
 
