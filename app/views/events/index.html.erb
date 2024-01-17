@@ -3,7 +3,7 @@
   <section class="event">
     <div class="row">
       <div class="col-3 image">
-        <%= image_tag event.image_file_name%>
+        <%= main_image(event)%>
       </div>
       <div class="col-9 summery">
       <h2><%= link_to event.name, event_path(event)%></h2>
